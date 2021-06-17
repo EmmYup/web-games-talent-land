@@ -1,5 +1,7 @@
+import Game2 from '../../games/Game2';
+
 const Example2 = () => {
-  return <div>Example 2</div>;
+  return <Game2 />;
 };
 
 export default Example2;
