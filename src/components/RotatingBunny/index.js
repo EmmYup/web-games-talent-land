@@ -5,7 +5,7 @@ import Bunny from '../../sprites/bunny';
 function RotatingBunny(props) {
   const [rotation, setRotation] = useState(0);
   const [scale, setScale] = useState(1);
-  const { game1Score, onSetScore } = props;
+  const { game1Score, onSetScore, localGame1Score, onSetLocalScore } = props;
   const animate = useCallback(delta => {
     setRotation(rotation => rotation + 0.1 * delta);
   }, []);
@@ -13,6 +13,7 @@ function RotatingBunny(props) {
 
   const handleClick = () => {
     onSetScore(game1Score + 1);
+    onSetLocalScore(localGame1Score + 1);
     setScale(scale => scale * 1.25);
   };
 

@@ -1,9 +1,9 @@
 const propsSelector = ({
-  app: { game1Score, globalScore, localGame1Score },
+  app: { game2Score, globalScore, localGame2Score },
 }) => ({
-  game1Score,
+  game2Score,
   globalScore,
-  localGame1Score,
+  localGame2Score,
 });
 
 export default { propsSelector };
