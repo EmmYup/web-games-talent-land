@@ -16,9 +16,12 @@ const Home = props => {
     },
     {
       path: 'example-2',
-      description: 'Bunny Hunt (Usando sprites con React Hooks)',
+      description: 'Bunny Hunt (Manejando sprites con React Hooks)',
     },
-    { path: 'example-3', description: '' },
+    {
+      path: 'example-3',
+      description: 'Block Stacker (Combinando react-pixi con sonido)',
+    },
   ];
 
   useEffect(() => {
