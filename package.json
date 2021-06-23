@@ -20,6 +20,7 @@
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.3",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -56,8 +57,7 @@
     "husky": "^6.0.0",
     "postcss": "^7",
     "prettier": "2.3.1",
-    "pretty-quick": "^3.1.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "pretty-quick": "^3.1.0"
   },
   "engines": {
     "node": ">=12.19.0"
