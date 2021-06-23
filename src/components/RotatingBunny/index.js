@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { Component, useCallback, useState } from 'react';
 import { usePixiTicker } from 'react-pixi-fiber';
 import Bunny from '../../sprites/bunny';
 
