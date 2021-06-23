@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import theme from './config/theme';
 import { history, store } from './store';
 import ConnectApp from './provider';
+import './index.css';
 
 const ProvidedApp = ConnectApp(store, history, theme)(App);
 

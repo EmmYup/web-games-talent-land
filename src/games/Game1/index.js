@@ -1,4 +1,3 @@
-import { Container, Button } from 'react-bootstrap';
 import { Stage } from 'react-pixi-fiber';
 import { useHistory } from 'react-router-dom';
 import RotatingBunny from '../../components/RotatingBunny';
@@ -36,11 +35,11 @@ const Game1 = props => {
       <Stage options={OPTIONS}>
         <RotatingBunny x={width / 2} y={height / 2} {...props} />
       </Stage>
-      <Container>
-        <Button variant="primary" onClick={onFinishGame}>
+      <div>
+        <button variant="primary" onClick={onFinishGame}>
           Finalizar juego
-        </Button>
-      </Container>
+        </button>
+      </div>
     </div>
   );
 };
