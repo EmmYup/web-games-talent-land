@@ -26,133 +26,6 @@ var sndPop = new Howl({
   loop: false,
 });
 
-// const GameBoard = () => {
-//   const [gameState, setGameState] = useState(newGameState(true));
-//   function newGameState(active) {
-//     return {
-//       rows: new Array(boardSize.height).fill(0),
-//       first: 0,
-//       last: getBlockWidth(0),
-//       rowIndex: 0,
-//       direction: 1,
-//       won: false,
-//       lost: false,
-//       active,
-//     };
-//   }
-
-//   function newGame() {
-//     setGameState(newGameState(true));
-//   }
-
-//   function getBlockWidth(rowIndex) {
-//     switch (true) {
-//       case rowIndex > 12:
-//         return 1;
-//       case rowIndex > 8:
-//         return 2;
-//       default:
-//         return 3;
-//     }
-//   }
-
-//   function gameOver(won) {
-//     if (won) {
-//       gameState.won = true;
-//       sndWin.play();
-//     } else {
-//       gameState.lost = true;
-//       sndLose.play();
-//     }
-//     gameState.active = false;
-//     setGameState(gameState);
-//   }
-
-//   function handleButton() {
-//     if (!gameState.active) {
-//       newGame();
-//       return;
-//     }
-//     // check for game over
-//     // lose: no overlap between row and previous row
-//     const { rowIndex } = gameState;
-//     const overlap =
-//       rowIndex === 0
-//         ? gameState.rows[0]
-//         : gameState.rows[rowIndex] & gameState.rows[rowIndex - 1];
-
-//     if (overlap === 0) {
-//       return gameOver(false);
-//     }
-//     gameState.rows[rowIndex] = overlap;
-//     if (gameState.rowIndex === boardSize.height - 1) {
-//       return gameOver(true);
-//     }
-//     gameState.rowIndex++;
-
-//     // block width gets smaller with higher rowIndex
-//     gameState.first = 0;
-//     gameState.last = getBlockWidth(gameState.rowIndex);
-//     sndPop.stop();
-//     sndPop.play();
-//     setGameState(gameState);
-//   }
-
-//   const animate = useCallback(
-//     delta => {
-//       if (gameState.active) {
-//         const increment = delta * (gameState.rowIndex / 8 + 1) * 0.1;
-//         // switch direction if needed
-//         if (
-//           gameState.last + gameState.direction * increment >
-//           boardSize.width
-//         ) {
-//           gameState.direction = -1;
-//         }
-//         if (gameState.first + gameState.direction * increment < -1) {
-//           gameState.direction = 1;
-//         }
-//         // update first and last index
-//         gameState.first += gameState.direction * increment;
-//         gameState.last += gameState.direction * increment;
-
-//         let row = 0;
-//         for (let col = 0; col < boardSize.width; col++) {
-//           if (col >= gameState.first && col <= gameState.last) {
-//             row |= 2 << col;
-//           }
-//         }
-//         gameState.rows[gameState.rowIndex] = row;
-//       }
-//       setGameState(gameState);
-//     },
-//     [gameState]
-//   );
-//   usePixiTicker(animate);
-
-//   useEffect(() => {
-//     document.addEventListener('keydown', handleButton);
-//     document.addEventListener('click', handleButton);
-//     document.addEventListener('touchstart', handleButton);
-
-//     return () => {
-//       // document.removeEventListener('keydown');
-//       // document.removeEventListener('click');
-//       // document.removeEventListener('touchstart');
-//     };
-//   }, [handleButton]);
-
-//   const { rows } = gameState;
-//   return rows.map((row, rowIndex) => (
-//     <GameRow
-//       key={rowIndex}
-//       boardSize={boardSize}
-//       row={row}
-//       index={boardSize.height - rowIndex - 1}
-//     />
-//   ));
-// };
-
 class GameBoard extends Component {
   state = {
     gameState: this.newGameState(true),
@@ -240,9 +113,9 @@ class GameBoard extends Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown');
-    document.removeEventListener('click');
-    document.removeEventListener('touchstart');
+    document.removeEventListener('keydown', () => false);
+    document.removeEventListener('click', () => false);
+    document.removeEventListener('touchstart', () => false);
     this.props.app.ticker.remove(this.animate);
   }
 

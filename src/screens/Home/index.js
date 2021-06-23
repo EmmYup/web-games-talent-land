@@ -14,7 +14,10 @@ const Home = props => {
       path: 'example-1',
       description: 'Ejemplo actualizando react store puntaje desde pixijs',
     },
-    { path: 'example-2', description: '' },
+    {
+      path: 'example-2',
+      description: 'Bunny Hunt (Usando sprites con React Hooks)',
+    },
     { path: 'example-3', description: '' },
   ];
 

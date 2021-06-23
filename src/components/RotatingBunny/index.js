@@ -1,4 +1,4 @@
-import React, { Component, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { usePixiTicker } from 'react-pixi-fiber';
 import Bunny from '../../sprites/bunny';
 
@@ -12,9 +12,9 @@ function RotatingBunny(props) {
   usePixiTicker(animate);
 
   const handleClick = () => {
+    setScale(scale => scale * 1.25);
     onSetScore(game1Score + 1);
     onSetLocalScore(localGame1Score + 1);
-    setScale(scale => scale * 1.25);
   };
 
   return (
