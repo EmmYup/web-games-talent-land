@@ -30,13 +30,16 @@ const Game1 = props => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col w-full items-center justify-center h-screen font-gameboy bg-gray-900 text-pacman-yellow">
       <p>Score: {localGame1Score}</p>
+      <p>Click on the bunny</p>
       <Stage options={OPTIONS}>
         <RotatingBunny x={width / 2} y={height / 2} {...props} />
       </Stage>
       <div>
-        <button variant="primary" onClick={onFinishGame}>
+        <button
+          className="bg-green-500 text-white p-1 my-4 rounded w-40 self-center font-gameboy"
+          onClick={onFinishGame}>
           Finalizar juego
         </button>
       </div>

@@ -2,7 +2,7 @@ import { Stage } from 'react-pixi-fiber';
 import GameBoard from '../../components/GameBoard';
 
 const Game3 = () => {
-  const height = 800;
+  const height = 700;
   const width = 500;
   const OPTIONS = {
     backgroundColor: 0x000000,
