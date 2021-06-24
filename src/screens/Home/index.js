@@ -60,13 +60,13 @@ const Home = props => {
         <div className="flex flex-col lg:flex-row">
           {examples.map((example, index) => (
             <div
-              className="flex flex-col flex-1 justify-between items-center border-8 m-4 h-60 hover:border-4 hover:border-pacman-yellow"
+              className="flex flex-col flex-1 justify-between items-center border-8 m-4 hover:border-4 hover:border-pacman-yellow"
               key={`game${index + 1}Score`}>
               <div className="flex flex-col p-4">
                 <p className="p-1">{example.description}</p>
 
                 <Link
-                  className="bg-green-500 text-white p-1 my-4 rounded w-40 self-center font-gameboy hover:opacity-80 text-center mt-8"
+                  className="bg-green-500 text-white py-1 px-4 my-4 rounded  self-center font-gameboy hover:opacity-80 text-center mt-8"
                   to={example.path}>
                   Play
                 </Link>
